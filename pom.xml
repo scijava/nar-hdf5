@@ -17,6 +17,16 @@
 	<description>NAR (Native ARchive) distribution of HDF-related JNI code.</description>
 	<packaging>nar</packaging>
 
+	<properties>
+		<architecture.option />
+		<debug.option />
+		<java.os.include />
+		<libdl.name />
+		<skipTests>true</skipTests>
+		<stack.protector.option />
+		<subsystem.option />
+	</properties>
+
 	<scm>
 		<connection>scm:git:git://github.com/scifio/hdf5jni</connection>
 		<developerConnection>scm:git:git@github.com:scifio/hdf5jni</developerConnection>
@@ -60,6 +70,13 @@
 					<cpp>
 						<exceptions>false</exceptions>
 					</cpp>
+					<linker>
+						<sysLibs>
+							<sysLib>
+								<name>${libdl.name}</name>
+							</sysLib>
+						</sysLibs>
+					</linker>
 					<libraries>
 						<library>
 							<type>jni</type>
@@ -76,4 +93,38 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>i386-Windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+					<arch>x86</arch>
+				</os>
+			</activation>
+			<properties>
+				<java.os.include>-I${JAVA_HOME}/include/win32</java.os.include>
+				<architecture.option>-m32</architecture.option>
+				<subsystem.option>-mwindows</subsystem.option>
+				<libdl.name>ws2_32</libdl.name>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>amd64-Windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+					<arch>amd64</arch>
+				</os>
+			</activation>
+			<properties>
+				<java.os.include>-I${JAVA_HOME}/include/win32</java.os.include>
+				<architecture.option>-m64</architecture.option>
+				<subsystem.option>-mwindows</subsystem.option>
+				<libdl.name>ws2_32</libdl.name>
+			</properties>
+		</profile>
+	</profiles>
 </project>
