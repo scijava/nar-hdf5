@@ -21,10 +21,10 @@ Support AOLs
 Adding additional AOL support
 -----------------------------
 
-1) A libhdf5.settings file needs to be generated, e.g. by configuring with CMake on Windows.
-2) The H5detect and H5make_libsettings programs need to be compiled.
-3) Add the executables from 2 and settings file from 1 to `/bin`
-4) Add configuration for `exec-maven-plugin` to the `pom.xml` to call the appropriate programs from 2 and store their output as `.c` files. (model after existing configuration)
+1. A libhdf5.settings file needs to be generated, e.g. by configuring with CMake on Windows.
+2. The H5detect and H5make_libsettings programs need to be compiled.
+3. Add the executables from 2 and settings file from 1 to `/bin`
+4. Add configuration for `exec-maven-plugin` to the `pom.xml` to call the appropriate programs from 2 and store their output as `.c` files. (model after existing configuration)
 
 
 BUGS
