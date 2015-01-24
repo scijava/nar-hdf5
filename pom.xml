@@ -25,6 +25,8 @@
 		<skipTests>true</skipTests>
 		<stack.protector.option />
 		<subsystem.option />
+		<hdf5-detect.path>${project.basedir}/src/main/c/H5detect.c</hdf5-detect.path>
+		<hdf5-libsettings.path>${project.basedir}/src/main/c/H5libsettings.c</hdf5-libsettings.path>
 	</properties>
 
 	<scm>
@@ -104,7 +106,7 @@
 						<configuration>
 							<executable>${project.basedir}/bin/H5Detect.exe</executable>
 							<workingDirectory>${project.basedir}/bin</workingDirectory>
-							<outputFile>${project.basedir}/src/main/c/H5detect.c</outputFile>
+							<outputFile>${hdf5-detect.path}</outputFile>
 						</configuration>
 					</execution>
 					<execution>
@@ -116,7 +118,7 @@
 						<configuration>
 							<executable>${project.basedir}/bin/H5make_libsettings.exe</executable>
 							<workingDirectory>${project.basedir}/bin</workingDirectory>
-							<outputFile>${project.basedir}/src/main/c/H5libsettings.c</outputFile>
+							<outputFile>${hdf5-libsettings.path}</outputFile>
 						</configuration>
 					</execution>
 				</executions>
