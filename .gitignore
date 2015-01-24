@@ -3,3 +3,5 @@
 /.project
 /.settings/
 /target/
+/src/main/c/H5libsettings.c
+/src/main/c/H5detect.c

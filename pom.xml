@@ -91,6 +91,36 @@
 					</libraries>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>run-detect</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${project.basedir}/bin/H5Detect.exe</executable>
+							<workingDirectory>${project.basedir}/bin</workingDirectory>
+							<outputFile>${project.basedir}/src/main/c/H5detect.c</outputFile>
+						</configuration>
+					</execution>
+					<execution>
+						<id>run-libsettings</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${project.basedir}/bin/H5make_libsettings.exe</executable>
+							<workingDirectory>${project.basedir}/bin</workingDirectory>
+							<outputFile>${project.basedir}/src/main/c/H5libsettings.c</outputFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
